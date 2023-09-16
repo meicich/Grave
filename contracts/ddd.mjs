@@ -7,7 +7,7 @@ dotenv.config()
 
 
 const provider = new JsonRpcProvider(`https://eth-goerli.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}`);
-const signer = new ethers.Wallet(<></>, provider);
+const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 
 // スマートコントラクトのABI
 const abi = [
@@ -455,7 +455,7 @@ async function mintNFT() {
   console.log(base64Image.length/100000)
   for (let i = 0;i<base64Image.length/100000 + 1;i++){
     console.log(i)
-    const tx = await contract.mintNFT("0x5Ad0fFAF8C3605aa36ee4869d639fab23B1EeEA5", base64Image.substr(i*1000000+1,i*1000000 >= base64Image.length ? base64Image.length-1:i*1000000), "0x5Ad0fFAF8C3605aa36ee4869d639fab23B1EeEA5");
+    const tx = await contract.mintNFT(process.env.MY_ADDRESS, base64Image.substr(i*100000+1,i*100000 >= base64Image.length ? base64Image.length-1:i*100000),process.env.MY_ADDRESS );
     await tx.wait();
   }
   console.log(i)
@@ -469,7 +469,7 @@ async function collectData(tokenId) {
   const base64Image = new Buffer.from(bitmap).toString('base64');
   const data = await contract.collectData(tokenId);
   const i = 0
-  console.log("Collected Data:", data === base64Image.substr(i*1000000+1,i*1000000 >= base64Image.length ? base64Image.length-1:i*1000000));
+  console.log("Collected Data:", data === base64Image.substr(i*100000+1,i*100000 >= base64Image.length ? base64Image.length-1:i*100000));
 }
 
 // 実行
