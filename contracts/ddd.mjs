@@ -7,7 +7,7 @@ dotenv.config()
 
 
 const provider = new JsonRpcProvider(`https://eth-goerli.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}`);
-const signer = new ethers.Wallet("788b29504807b6448ea82a6ebc72312d5543df6ea0b0e2afcb92c390fa31428e", provider);
+const signer = new ethers.Wallet(<></>, provider);
 
 // スマートコントラクトのABI
 const abi = [
