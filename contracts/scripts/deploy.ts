@@ -3,7 +3,7 @@ import { ethers } from "hardhat";
 async function main() {
   const recieverAddress = '0x5Ad0fFAF8C3605aa36ee4869d639fab23B1EeEA5'
 
-  const MyContract = await ethers.getContractFactory("MyContract");
+  const MyContract = await ethers.getContractFactory("DataNFT");
   const myContract = await MyContract.deploy();
   
   console.log("Deploying MyContract...");

@@ -15,7 +15,8 @@
     "format:js": "eslint --fix './{test,scripts}/**/*.ts' && prettier --write './{test,scripts,contracts}/**/*.{ts,sol}'",
     "format": "yarn format:sol && yarn format:js",
     "deploy": "yarn hardhat run --network goerli scripts/deploy.ts",
-    "abi": "yarn hardhat export-abi"
+    "abi": "yarn hardhat export-abi",
+    "start": "node ddd.mjs"
   },
   "devDependencies": {
     "@ethersproject/abi": "^5.4.7",
@@ -42,7 +43,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
-    "ethers": "^5.4.7",
+    "ethers": "^6.7.1",
     "hardhat": "^2.13.0",
     "hardhat-abi-exporter": "^2.10.1",
     "hardhat-contract-sizer": "^2.8.0",
